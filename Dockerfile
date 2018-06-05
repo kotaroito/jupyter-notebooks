@@ -9,6 +9,8 @@ RUN apt-get update -y && \
     python3-setuptools && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
+WORKDIR /tmp
+
 # Install python packages
-RUN pip3 install --no-cache-dir pandas scipy jupyter
-RUN pip3 install --no-cache-dir chainer==4.1.0
+ADD requirements.txt /tmp
+RUN pip3 install -r /tmp/requirements.txt && rm /tmp/requirements.txt
