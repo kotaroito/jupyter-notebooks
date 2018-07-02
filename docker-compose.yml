@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jupyter:
+    user: $UID
+    build: .
+    image: kotaroito/jupyter
+    environment:
+      - HOME=/tmp
+    working_dir: /tmp
+    ports:
+     - "8888:8888"
+    volumes:
+     - ./notebooks:/tmp/notebooks
+    command: >-
+      jupyter notebook --ip=0.0.0.0
