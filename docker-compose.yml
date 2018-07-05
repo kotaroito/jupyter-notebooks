@@ -8,8 +8,8 @@ services:
       - HOME=/tmp
     working_dir: /tmp
     ports:
-     - "8888:8888"
+     - "$PORT:$PORT"
     volumes:
      - ./notebooks:/tmp/notebooks
     command: >-
-      jupyter notebook --ip=0.0.0.0
+      jupyter notebook --ip=0.0.0.0 --port $PORT
