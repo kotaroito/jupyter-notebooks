@@ -6,7 +6,7 @@ services:
     image: kotaroito/jupyter
     environment:
       - HOME=/tmp
-    working_dir: /tmp
+    working_dir: /tmp/notebooks
     ports:
      - "$PORT:$PORT"
     volumes:
