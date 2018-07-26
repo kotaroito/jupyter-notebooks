@@ -4,6 +4,7 @@ services:
     user: $UID
     build: .
     image: kotaroito/jupyter
+    working_dir: /tmp
     environment:
       - HOME=/tmp
     ports:
@@ -17,6 +18,5 @@ services:
       jupyter notebook --ip=0.0.0.0 --port $PORT
   example:
     <<: *base
-    working_dir: /tmp/examples
     volumes:
      - ./examples:/tmp/examples
