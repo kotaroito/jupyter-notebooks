@@ -1,15 +1,22 @@
 version: '3'
 services:
-  jupyter:
+  base: &base
     user: $UID
     build: .
     image: kotaroito/jupyter
     environment:
       - HOME=/tmp
-    working_dir: /tmp/notebooks
     ports:
-     - "$PORT:$PORT"
+      - "$PORT:$PORT"
+  notebook:
+    <<: *base
+    working_dir: /tmp/notebooks
     volumes:
      - ./notebooks:/tmp/notebooks
     command: >-
       jupyter notebook --ip=0.0.0.0 --port $PORT
+  example:
+    <<: *base
+    working_dir: /tmp/examples
+    volumes:
+     - ./examples:/tmp/examples
