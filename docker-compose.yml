@@ -3,7 +3,7 @@ services:
   base: &base
     user: $UID
     build: .
-    image: kotaroito/jupyter
+    image: notebook:latest
     working_dir: /tmp
     environment:
       - HOME=/tmp
