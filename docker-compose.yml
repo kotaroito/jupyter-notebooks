@@ -11,12 +11,14 @@ services:
       - "$PORT:$PORT"
   notebook:
     <<: *base
-    working_dir: /tmp/notebooks
+    working_dir: /tmp
     volumes:
      - ./notebooks:/tmp/notebooks
+     - ./data:/tmp/data
     command: >-
       jupyter notebook --ip=0.0.0.0 --port $PORT
   example:
     <<: *base
     volumes:
      - ./examples:/tmp/examples
+     - ./data:/tmp/data     
