@@ -21,3 +21,4 @@ services:
     <<: *base
     volumes:
      - ./examples:/tmp/examples
+     - ./data:/tmp/data     
