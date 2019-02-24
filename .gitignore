@@ -1,3 +1,6 @@
 /venv
+/data
 
 .ipynb_checkpoints
+__pycache__
+.Trash-501
